@@ -17,7 +17,7 @@ function Signin() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8080/api/auth/signin", {
+    const response = await fetch("https://node-massyve.herokuapp.com/api/auth/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
