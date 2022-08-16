@@ -1,18 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react';
 
 export default function UserHome() {
 
- const username = localStorage.getItem('username');
- const email = localStorage.getItem('email');
- const roles = localStorage.getItem('roles');
- const isLogged = localStorage.getItem('isLogged');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [roles , setRoles] = useState();
+
+
+  useEffect(() => {
+    // Perform localStorage action
+     setUsername(localStorage.getItem('username'));
+    setEmail(localStorage.getItem('email'));
+    setRoles(localStorage.getItem('roles'));
+    
+    
+  }, [])
+ 
   return (
    <div className="container">
       <h1>Hello {username}</h1>
       <h2>your email : {email}</h2>
       <h3>your role : {roles}</h3>
-      <h4>your are {isLogged}</h4>
     </div>  
     )
 }
